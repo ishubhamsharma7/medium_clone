@@ -40,8 +40,6 @@ blogRouter.post('/',blogAuth, createBlogMiddleware ,async (c) => {
 
 	const body = c.get('body')
 
-	console.log("=",userId)
-
 	const post = await prisma.post.create({
 		data: {
 			title: body.title,
