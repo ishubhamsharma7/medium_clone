@@ -59,4 +59,3 @@ userRouter.post('/signin',userSigninMiddleware, async (c) => {
   const jwtToken = await sign({ id: user.id,name:user.name,email:user.email }, c.env.JWT_SECRET);
   return c.json({ jwtToken });
 })
-
