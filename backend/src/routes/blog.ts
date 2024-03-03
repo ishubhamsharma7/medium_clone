@@ -6,7 +6,6 @@ import { blogAuth, createBlogMiddleware, updateBlogMiddleware } from "../middlew
 
 export const blogRouter = new Hono<blogContext>();
 
-
 blogRouter.get('/:id',blogAuth, async (c) => {
 	const id = c.req.param('id');
 	const prisma = new PrismaClient({
@@ -63,8 +62,6 @@ blogRouter.put('/',blogAuth, updateBlogMiddleware, async (c) => {
 
 	const body = c.get('body');
 
-	console.log("=>",body)
-
 	const post = await prisma.post.update({
 		where: {
 			id: body.id,
@@ -80,4 +77,3 @@ blogRouter.put('/',blogAuth, updateBlogMiddleware, async (c) => {
 		id: post.id,
 	 });
 });
-
