@@ -9,7 +9,7 @@ export interface Blog{
    id:string
    title:string;
    content:string;
-   publishDate: string;
+   createdDate: string;
    author: AuthorName
 }
 

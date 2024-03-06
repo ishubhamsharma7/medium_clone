@@ -11,7 +11,7 @@ export const Blog = () => {
     if(loading)return <div>Loading</div>
     return (
         <div>
-            <BlogDescription blog={blog}/>
+            <BlogDescription blog={blog!}/>
         </div>
     )
 }

@@ -21,8 +21,7 @@ export const Signin = () => {
         try {
             const res = await axios.post(`${BACKEND_URL}/api/v1/user/signin`,userSigninInput)
             const jwt = res.data.jwtToken;
-            console.log(jwt)
-
+            
             localStorage.setItem('token',jwt);
             navigate('/blogs')
             

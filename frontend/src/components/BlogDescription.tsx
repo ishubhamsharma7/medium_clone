@@ -3,7 +3,7 @@ import Appbar from "./Appbar"
 import Avatar from "./Avatar"
 
 
-const BlogDescription = ({blog}:{blog:Blog}) => {
+const BlogDescription = ({blog}:{blog:Blog }) => {
   return (
    <div>
       <Appbar/>
@@ -14,19 +14,19 @@ const BlogDescription = ({blog}:{blog:Blog}) => {
                   {blog.title}
                </div>
                <div className="text-slate-400 pt-3">
-                  Posted on 3rd December 2023
+                  {new Date(blog?.createdDate).toDateString() }
                </div>
-               <div className="pt-3">
-                  {blog.content}
+               <div className="pt-3" dangerouslySetInnerHTML={{__html: blog.content}}>
+                  
                </div>
             </div>
-            <div className=" col-span-4 ">
+            <div className=" col-span-4 pl-6">
                <div className="text-slate-600 text-lg">
                   Author
                </div>
                <div className="flex w-full pt-3" >
                   <div className="flex justify-center flex-col pr-4">
-                     <Avatar name={ blog.author.name[0].toUpperCase()} size={8}/>
+                     <Avatar name={ blog.author.name[0].toUpperCase()} size={'8'}/>
                   </div>
                   <div>
                      <div className=" font-extrabold text-xl ">

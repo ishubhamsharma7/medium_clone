@@ -17,7 +17,7 @@ const Blogs = () => {
           {
             blogs.map((blog)=>(
               <div key={blog.id}>
-                <BlogCard key={blog.id} id={blog.id} authorName={blog.author.name[0].toUpperCase() + blog.author.name.slice(1)} publishedDate={blog?.publishDate ?? "3 Dec 2023"} title={blog.title} content={blog.content} />
+                <BlogCard key={blog.id} id={blog.id} authorName={blog.author.name[0].toUpperCase() + blog.author.name.slice(1)} createdDate={new Date(blog?.createdDate).toDateString() } title={blog.title} content={blog.content} />
               </div>
 
             ))

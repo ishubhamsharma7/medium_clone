@@ -19,6 +19,7 @@ blogRouter.get('/:id',blogAuth, async (c) => {
 		select:{
 			title:true,
 			content:true,
+			createdDate:true,
 			author:{
 				select:{
 					name:true
@@ -42,6 +43,7 @@ blogRouter.get('/bulk/posts',blogAuth, async (c) => {
 			content:true,
 			title:true,
 			id:true,
+			createdDate:true,
 			author:{
 				select:{
 					name:true
