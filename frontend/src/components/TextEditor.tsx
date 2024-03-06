@@ -34,7 +34,7 @@ export default function TextEditor({content,setContent}:TextEditorProps) {
         onEditorChange={onEditorChange}
         apiKey={import.meta.env.VITE_EDITOR_API_KEY}
         value={content}
-        onInit={(evt, editor) => (editorRef.current = editor)}
+        onInit={(_evt, editor) => (editorRef.current = editor)}
         init={EDITOR_CONFIG as Object}
       />
       {/* <button onClick={log}>Log editor content</button> */}
