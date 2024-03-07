@@ -5,6 +5,7 @@ import { sign } from "hono/jwt";
 import { userSigninMiddleware, userSignupMiddleware } from "../middleware/user";
 import { hashPasswordFunction } from "../helper/passwordHash";
 import { userContext } from "../helper/context";
+import { setCookie } from "hono/cookie";
 
 
 export const userRouter = new Hono<userContext>();
@@ -57,5 +58,10 @@ userRouter.post('/signin',userSigninMiddleware, async (c) => {
   }
 
   const jwtToken = await sign({ id: user.id,name:user.name,email:user.email }, c.env.JWT_SECRET);
+  setCookie(c,'token',jwtToken,{
+    secure: true,
+    httpOnly: true,
+    sameSite: 'None',
+  })
   return c.json({ jwtToken });
 })

@@ -1,12 +1,21 @@
 import { createPostInput, updatePostInput } from "@imshubham_s7/common-medium";
 import type { MiddlewareHandler } from "hono";
-import { jwt } from 'hono/jwt'
+import { getCookie } from "hono/cookie";
+import { decode } from 'hono/jwt'
+import { CookieContext } from "../helper/context";
 
-export const blogAuth: MiddlewareHandler = async (c,next) => {
-   const jwtMiddleware = jwt({
-      secret: c.env.JWT_SECRET,
-    });
-    return jwtMiddleware(c, next);
+export const blogAuth: MiddlewareHandler<CookieContext> = async (c,next) => {
+   
+   const cookie =  getCookie(c,'token')
+
+   if(!cookie) return c.json({message:"no token"});
+   try {
+      const decodeToken = decode(cookie)
+      c.set('user',decodeToken.payload)
+      await next()
+   } catch (error) {
+      return c.json({message:"Invalid User"})
+   }
 }
 
 

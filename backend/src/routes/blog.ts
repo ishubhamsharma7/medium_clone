@@ -56,7 +56,7 @@ blogRouter.get('/bulk/posts',blogAuth, async (c) => {
 
 
 blogRouter.post('/',blogAuth, createBlogMiddleware ,async (c) => {
-	const userId = c.get('jwtPayload').id;
+	const userId = c.get('user');
 	const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL	,
 	}).$extends(withAccelerate());
@@ -67,7 +67,7 @@ blogRouter.post('/',blogAuth, createBlogMiddleware ,async (c) => {
 		data: {
 			title: body.title,
 			content: body.content,
-			authorId: userId
+			authorId: userId.id
 		}
 	});
 	return c.json({
@@ -76,9 +76,9 @@ blogRouter.post('/',blogAuth, createBlogMiddleware ,async (c) => {
 })
 
 blogRouter.put('/',blogAuth, updateBlogMiddleware, async (c) => {
-	const userId = c.get('jwtPayload').id;
+	const userId = c.get('user');
 	const prisma = new PrismaClient({
-		datasourceUrl: c.env?.DATABASE_URL	,
+		datasourceUrl: c.env?.DATABASE_URL,
 	}).$extends(withAccelerate());
 
 	const body = c.get('body');
@@ -86,7 +86,7 @@ blogRouter.put('/',blogAuth, updateBlogMiddleware, async (c) => {
 	const post = await prisma.post.update({
 		where: {
 			id: body.id,
-			authorId: userId
+			authorId: userId.id
 		},
 		data: {
 			title: body.title,

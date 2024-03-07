@@ -19,10 +19,8 @@ export const Signin = () => {
     const submitRequestHandler = async () => {
 
         try {
-            const res = await axios.post(`${BACKEND_URL}/api/v1/user/signin`,userSigninInput)
-            const jwt = res.data.jwtToken;
             
-            localStorage.setItem('token',jwt);
+            await axios.post(`${BACKEND_URL}/api/v1/user/signin`,userSigninInput,{withCredentials:true})
             navigate('/blogs')
             
         } catch (error) {

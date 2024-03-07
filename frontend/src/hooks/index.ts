@@ -23,11 +23,7 @@ export const useBlogs = () => {
    useEffect(()=>{
       const fetchBlogs = async ()=>{
          try {
-            const blogs= await axios.get(`${BACKEND_URL}/api/v1/blog/bulk/posts`,{
-               headers:{
-                  "Authorization" : `Bearer ${localStorage.getItem("token")}`
-               }
-            })
+            const blogs= await axios.get(`${BACKEND_URL}/api/v1/blog/bulk/posts`,{withCredentials:true})
             setBlogs(blogs.data)
             setLoading(false)
          } catch (error) {
@@ -50,11 +46,7 @@ export const useBlog = ({id}:{id:string}) => {
    useEffect(()=>{
       const fetchBlogs = async ()=>{
          try {
-            const blogs= await axios.get(`${BACKEND_URL}/api/v1/blog/${id}`,{
-               headers:{
-                  "Authorization" : `Bearer ${localStorage.getItem("token")}`
-               }
-            })
+            const blogs= await axios.get(`${BACKEND_URL}/api/v1/blog/${id}`,{withCredentials:true})
             setBlog(blogs.data)
             setLoading(false)
          } catch (error) {

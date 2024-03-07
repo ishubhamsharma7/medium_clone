@@ -33,7 +33,7 @@ const BlogDescription = ({blog}:{blog:Blog }) => {
                         { blog.author.name[0].toUpperCase() + blog.author.name.slice(1) }
                      </div>
                      <div className="text-slate-400 pt-3">
-                        Random catchphrase of author so that space can be taken up and design's can be made thanks
+                           Forge your path with courage, seize every opportunity, and let your spirit soar. In a world of endless possibilities, make your mark and inspire others to do the same. Embrace the journey, for greatness awaits those who dare to chase their dreams.
                      </div>
                   </div>
                </div>

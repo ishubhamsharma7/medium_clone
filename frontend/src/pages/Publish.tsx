@@ -17,11 +17,7 @@ const Publish = () => {
       await axios.post(`${BACKEND_URL}/api/v1/blog`,{
          title,
          content
-      }, {
-         headers:{
-            "Authorization" : `Bearer ${localStorage.getItem("token")}`
-         }
-      })
+      }, {withCredentials:true})
       navigate('/blogs')
    }
    

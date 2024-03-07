@@ -1,8 +1,14 @@
 
+interface UserToken {
+  id: string;
+  name:string;
+  email:string
+}
 
 export type Bindings = {
    DATABASE_URL: string;
    JWT_SECRET: string;
+   CORS_ORIGIN:string
 }
 
 export type userContext = {
@@ -19,12 +25,19 @@ export type userContext = {
 export type blogContext = {
    Bindings: Bindings;
    Variables: {
-     userId: string;
-     body : {
-       id?:string,
-       title : string,
-       content : string
-     }
-   };
- };
+    userId: string;
+    body : {
+      id?:string,
+      title : string,
+      content : string
+    }
+  };
+};
  
+export type CookieContext =  {
+  Bindings: Bindings;
+   Variables: {
+    user: UserToken;
+  };
+}
+

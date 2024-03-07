@@ -20,7 +20,7 @@ const BlogCard = ({title,content,createdDate,authorName,id}:BlogCardProps) => {
             <Avatar name={authorName} size={'8'}/>
          </div>
          <div className=" font-light px-2 flex flex-col justify-center">
-            {authorName} .
+            {authorName} 
          </div> 
          <div className="text-slate-500 font-thin text-sm flex flex-col justify-center">
             {new Date(createdDate).toDateString() }
