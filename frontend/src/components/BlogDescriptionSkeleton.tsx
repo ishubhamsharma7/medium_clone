@@ -30,7 +30,7 @@ const BlogDescriptionSkeleton = () => {
               </div>
               <div>
                   <div className=" font-extrabold text-xl ">
-                    <div className="h-2 bg-gray-200 rounded-full w-24 my-4"></div>
+                    <div className="h-2 bg-gray-200 rounded-full w-24 mb-4"></div>
                   </div>
                   <div className="text-slate-400 pt-3">
                     <div className="h-2 bg-gray-200 rounded-full mb-2 w-56"></div>
