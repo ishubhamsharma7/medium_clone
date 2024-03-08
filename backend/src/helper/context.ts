@@ -18,7 +18,12 @@ export type userContext = {
       name?: string;
       email: string;
       password: string;
-    };
+    },
+    resetPassword?:{
+      email:string
+      newPassword:string;
+      confirmPassword:string;
+    }
   }
 }
 

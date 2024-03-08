@@ -15,6 +15,14 @@ export const signinInput = z.object({
 
 export type SigninType = z.infer<typeof signinInput>;
 
+export const resetPassword = z.object({
+    email: z.string().email(),
+    newPassword: z.string(),
+    confirmPassword: z.string(),
+});
+
+export type ResetPasswordType = z.infer<typeof resetPassword>;
+
 export const createPostInput = z.object({
     title: z.string(),
     content: z.string(),

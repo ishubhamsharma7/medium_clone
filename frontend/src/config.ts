@@ -21,3 +21,10 @@ export const EDITOR_CONFIG = {
    }
    body { color: #555555;} `,
 }
+
+
+export const ERROR_MESSAGE = {
+   INVALID_INPUT : "Invalid Input",
+   INCORRECT_PASSWORD : "Incorrect Password",
+   USER_NOT_EXISTS: "User doesn't exist"
+}

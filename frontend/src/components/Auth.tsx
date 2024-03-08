@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 interface TypeProps {
    type: "signup" | "signin";
-   children: ReactElement
+   children: ReactElement | React.ReactNode
 }
 
 
@@ -24,7 +24,6 @@ const AuthHeader = ({type,children}:TypeProps) => {
             <div className="">
                {children}
             </div>
-        
          </div>
       </div>
       

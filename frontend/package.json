@@ -10,8 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@100xdevs/common-app": "^1.0.3",
-    "@imshubham_s7/common-medium": "^1.0.2",
+    "@imshubham_s7/common-medium": "^1.0.7",
     "@tinymce/tinymce-react": "^4.3.2",
     "axios": "^1.6.7",
     "flowbite-react": "^0.7.2",
