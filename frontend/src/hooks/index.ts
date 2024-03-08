@@ -40,8 +40,6 @@ export const useBlog = ({id}:{id:string}) => {
    const [loading,setLoading] = useState(true)
 
    const [blog,setBlog] = useState<Blog>()
-
-
    
    useEffect(()=>{
       const fetchBlogs = async ()=>{
@@ -57,4 +55,26 @@ export const useBlog = ({id}:{id:string}) => {
    },[])
 
    return {blog,loading}
+}
+
+
+export const userUserBlog = ()=>{
+   const [loading,setLoading] = useState(true)
+
+   const [userBlog,setUserBlog] = useState<Blog[]>([])
+
+   useEffect(()=>{
+      const fetchUserBlogs = async()=>{
+         try {
+            const userBlogs = await axios.get(`${BACKEND_URL}/api/v1/blog/user/blogs`,{withCredentials:true})
+            setUserBlog(userBlogs.data.posts)
+            setLoading(false)
+         } catch (error) {
+            setLoading(false)
+         }
+      }
+      fetchUserBlogs()
+   },[])
+
+   return {userBlog,loading}
 }

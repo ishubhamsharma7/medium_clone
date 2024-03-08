@@ -67,7 +67,7 @@ userRouter.post('/signin',userSigninMiddleware, async (c) => {
     httpOnly: true,
     sameSite: 'None',
   })
-  return c.json({ jwtToken });
+  return c.json({ message:"user logged in" });
 })
 
 

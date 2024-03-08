@@ -7,13 +7,14 @@ interface BlogCardProps{
    createdDate:string;
    authorName:string;
    id:string
+   update?:boolean
 }
 
-const BlogCard = ({title,content,createdDate,authorName,id}:BlogCardProps) => {
+const BlogCard = ({title,content,createdDate,authorName,id,update}:BlogCardProps) => {
 
    const slicedBlogContent = content.slice(0,200)
   return (
-   <Link to={`/blog/${id}`}>
+   <Link to={update ?`/blog/update/${id}` : `/blog/${id}`}>
     <div className="border-b py-4 border-slate-200 w-screen max-w-screen-lg cursor-pointer">
       <div className="flex">
          <div className="flex flex-col justify-center">

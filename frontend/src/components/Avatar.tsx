@@ -43,7 +43,7 @@ export const LogoutAvatar = ({name}:AvatarProps) => {
         <span className="block text-medium font-semibold">{name}</span>
         {/* <span className="block truncate text-sm font-medium">name@flowbite.com</span> */}
       </Dropdown.Header>
-      <Link to={'/myblogs'}>
+      <Link to={'/user/blogs'}>
         <Dropdown.Item> My Blogs</Dropdown.Item>
       </Link>
       <Dropdown.Divider />

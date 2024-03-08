@@ -24,7 +24,7 @@ export const Signin = () => {
 
             await axios.post(`${BACKEND_URL}/api/v1/user/signin`,userSigninInput,{withCredentials:true})
             setIsLoading(false)
-            navigate('/blogs')
+            navigate('/blog')
             
         } catch (error) {
             setIsLoading(false)

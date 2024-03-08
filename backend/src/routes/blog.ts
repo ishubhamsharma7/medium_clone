@@ -96,5 +96,33 @@ blogRouter.put('/',blogAuth, updateBlogMiddleware, async (c) => {
 
 	return c.json({
 		id: post.id,
-	 });
+	});
 });
+
+blogRouter.get('/user/blogs',blogAuth, async (c) => {
+	
+	const userId = c.get('user');
+	
+	const prisma = new PrismaClient({
+		datasourceUrl: c.env?.DATABASE_URL,
+	}).$extends(withAccelerate());
+
+	const posts = await prisma.post.findMany({
+		where: {
+			authorId: userId?.id
+		},
+		select:{
+			content:true,
+			title:true,
+			id:true,
+			createdDate:true,
+			author:{
+				select:{
+					name:true
+				}
+			}
+		}
+	});
+
+	return c.json({ posts });
+})
