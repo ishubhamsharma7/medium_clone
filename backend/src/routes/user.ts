@@ -43,21 +43,25 @@ userRouter.post('/signin',userSigninMiddleware, async (c) => {
   const body = c.get("body");
 
   const hashedPass = await hashPasswordFunction(body.password);
+  
   const user = await prisma.user.findUnique({
     where: {
       email: body.email,
     },
   });
+
   if (!user) {
     c.status(403);
     return c.json({ error: "User doesn't exist." });
   }
+  
   if (user.password != hashedPass) {
     c.status(403);
     return c.json({ error: "Incorrect Password" });
   }
 
   const jwtToken = await sign({ id: user.id,name:user.name,email:user.email }, c.env.JWT_SECRET);
+  
   setCookie(c,'token',jwtToken,{
     secure: true,
     httpOnly: true,
