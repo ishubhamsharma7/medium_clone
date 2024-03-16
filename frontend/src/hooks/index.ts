@@ -58,7 +58,7 @@ export const useBlog = ({id}:{id:string}) => {
 }
 
 
-export const userUserBlog = ()=>{
+export const useUserBlog = ()=>{
    const [loading,setLoading] = useState(true)
 
    const [userBlog,setUserBlog] = useState<Blog[]>([])
@@ -78,3 +78,4 @@ export const userUserBlog = ()=>{
 
    return {userBlog,loading}
 }
+

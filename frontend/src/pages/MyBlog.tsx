@@ -1,12 +1,12 @@
 import Appbar from "../components/Appbar"
 import BlogCard from "../components/BlogCard"
 import BlogSkeleton from "../components/BlogSkeleton"
-import { userUserBlog } from "../hooks"
+import { useUserBlog } from "../hooks"
 
 
 const MyBlog = () => {
 
-  const {userBlog,loading} = userUserBlog()
+  const {userBlog,loading} = useUserBlog()
 
   console.log("--",userBlog)
 
