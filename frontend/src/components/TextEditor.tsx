@@ -1,8 +1,8 @@
 
 import { Editor } from '@tinymce/tinymce-react';
-import { Editor as TinyMCEEditor } from 'tinymce';
+// import { Editor as TinyMCEEditor } from 'tinymce';
 import { EDITOR_CONFIG } from '../config';
-import { useRef } from 'react';
+// import { useRef } from 'react';
 
 interface TextEditorProps{
    content:string;
